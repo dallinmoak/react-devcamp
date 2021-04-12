@@ -1,5 +1,5 @@
 {
-  "name": "webpack-basics",
+  "name": "react-devcamp",
   "scripts": {
     "dev": "webpack serve --config ./webpack/dev.config.js",
     "start": "node server.js",
