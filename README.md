@@ -1,6 +1,6 @@
-# webpack-basics
+# React-Devcamp 
 
-a template for making a bare-bones webpack react app. 
+following along with the Devcamp reat tutorial using my own from-scratch application setup based on https://github.com/dallinmoak/webpack-basics. 
 
 `npm i` to install node dependencies
 
