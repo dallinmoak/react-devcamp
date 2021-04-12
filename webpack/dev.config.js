@@ -9,7 +9,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [ 'babel-loader' ]
       },
@@ -24,7 +24,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React Webpack template',
+      title: 'React Devcamp',
       template: path.resolve(__dirname, '../static', 'index.html'),
       favicon: path.resolve(__dirname, '../static', 'favicon.ico')
     }),
