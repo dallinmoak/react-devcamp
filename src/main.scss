@@ -1,9 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 $background: #bdcef1;
 
 body{
+  font-family: 'Roboto', 'sans-serif';
   background-color: $background;
+  margin: 0;
 }
 
-.main-content h1 {
-  text-decoration: underline;
+a {
+  text-decoration: none;
+  color: black;
+  cursor: auto;
+}
+
+main {
+  .nav-main {
+    display: flex;
+    background-color: white;
+    a {
+      padding: 1em;
+      font-weight: 300;
+      font-size: 1.1em;
+      &:hover {
+        box-shadow: 0 0 .2em black;
+      }
+    }
+  }
+  .main-content{
+    display: grid;
+    grid-template-columns: auto;
+  }
 }
