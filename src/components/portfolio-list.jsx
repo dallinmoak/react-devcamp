@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { portfolio } from '../../static/variables.js';
+let [ baseURL, listPath, listResponse ] = 
+[portfolio.baseURL, portfolio.listPath, portfolio.listResponse];
+
 export default class PortfolioList extends Component {
   constructor(){
     super();
     this.state = {
-      portfolioItems: []
+      portfolioList: []
     }
     this.getPortfolioList = this.getPortfolioList.bind(this);
   }
 
   getPortfolioList() {
-    axios.get('https://dallinmoak.devcamp.space/portfolio/portfolio_items', { withCredentials: true })
+    axios.get( baseURL + listPath, { withCredentials: true })
     .then(res => {
-      let pItems = res.data.portfolio_items;
+      let pList = eval('res.' + listResponse);
       this.setState({
-        portfolioItems: pItems
-      })    })
+        portfolioList: pList
+      })    
+    })
   }
 
   printPortfolioList(){
-    let items = this.state.portfolioItems;
-    if(items){
-      return items.map( item => {
+    let pList = this.state.portfolioList;
+    if(pList){
+      return pList.map( item => {
         return(<div key={item.id}>{item.name}</div>)
       })
     }
