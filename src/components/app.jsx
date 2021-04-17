@@ -10,7 +10,7 @@ export default function App() {
         <main>
         <nav className="nav-main">
           <Link to="/">Home</Link>
-          <Link to="/About">About</Link>
+          <Link to="/about">About</Link>
         </nav>
         <div className="main-content">
           <div className="page-main">
@@ -19,7 +19,7 @@ export default function App() {
                 <h1>Home</h1>
                 <Home />
               </Route>
-              <Route path="/About">
+              <Route path="/about">
               <h1>About</h1>
                 <About />
               </Route>
