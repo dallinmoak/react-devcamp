@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { portfolio } from '../../static/variables.js';
+import PortfolioListItem from './portfolio-list-item.jsx';
 let [ baseURL, listPath, listResponse ] = 
 [portfolio.baseURL, portfolio.listPath, portfolio.listResponse];
 
@@ -26,7 +27,7 @@ export default function PortfolioList(){
     let pList = portfolioList;
     if(pList){
       return pList.map( item => {
-        return(<div key={item.id}>{item.name}</div>)
+        return(<PortfolioListItem key={item.id} item={item}/>)
       })
     }
   }
@@ -36,7 +37,7 @@ export default function PortfolioList(){
   })
 
   return (
-    <div>
+    <div className="portfolio-list">
       {errorMsg? <div className='error'>{errorMsg}</div> : null}
       {printPortfolioList()}
     </div>

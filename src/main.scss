@@ -32,11 +32,42 @@ main {
   .main-content{
     display: grid;
     grid-template-columns: auto;
+    margin: 1em;
     .error{
       padding: 1em;
       border-radius: .5em;
       border: 1px solid $error-border;
       background-color: $error-bg;
+    }
+    .portfolio-list{
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      grid-gap: .75em;
+    }
+    .portfolio-list-item{
+      border-radius: 1em;
+      background-color: white;
+      color: black;
+      display:flex;
+      .portfolio-list-item-inner{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 4em auto;
+        grid-template-areas: 
+          "img name"
+          "cap cap";
+        img.logo{
+          filter: invert(1);
+          height: 1.5em;
+          margin: auto;
+        }
+        p{
+         grid-area: cap; 
+        }
+      }
+      &:hover{
+        box-shadow: 0 0 .2em rgba(0,0,0,.5);
+      }
     }
   }
 }
