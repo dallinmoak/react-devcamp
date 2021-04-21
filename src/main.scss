@@ -1,5 +1,8 @@
+@use "sass:color";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 $background: #bdcef1;
+$error-border: red;
+$error-bg: color.scale(red, $lightness: 50%, $saturation: -50%);;
 
 body{
   font-family: 'Roboto', 'sans-serif';
@@ -29,5 +32,11 @@ main {
   .main-content{
     display: grid;
     grid-template-columns: auto;
+    .error{
+      padding: 1em;
+      border-radius: .5em;
+      border: 1px solid $error-border;
+      background-color: $error-bg;
+    }
   }
 }

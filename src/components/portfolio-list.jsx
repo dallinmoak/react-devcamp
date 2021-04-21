@@ -7,12 +7,18 @@ let [ baseURL, listPath, listResponse ] =
 
 export default function PortfolioList(){
   const [ portfolioList, setPortfolioList ] = useState([]);
+  const [ errorMsg, setErrorMsg ] = useState('');
 
   function getPortfolioList() {
-    axios.get( baseURL + listPath, { withCredentials: true })
+    const base = axios.create({baseURL: baseURL});
+    base.get( listPath, { withCredentials: true })
     .then(res => {
       let pList = eval('res.' + listResponse);
       setPortfolioList(pList);
+    })
+    .catch(e => {
+      console.error(e);
+      setErrorMsg("error loading portfolio list: " + e)
     })
   }
 
@@ -31,6 +37,7 @@ export default function PortfolioList(){
 
   return (
     <div>
+      {errorMsg? <div className='error'>{errorMsg}</div> : null}
       {printPortfolioList()}
     </div>
   );
