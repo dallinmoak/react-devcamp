@@ -3,18 +3,16 @@ import axios from 'axios';
 
 import { portfolio } from '../../static/variables.js';
 import PortfolioListItem from './portfolio-list-item.jsx';
-let [ baseURL, listPath, listResponse ] = 
-[portfolio.baseURL, portfolio.listPath, portfolio.listResponse];
 
 export default function PortfolioList(){
   const [ portfolioList, setPortfolioList ] = useState([]);
   const [ errorMsg, setErrorMsg ] = useState('');
 
   function getPortfolioList() {
-    const base = axios.create({baseURL: baseURL});
-    base.get( listPath, { withCredentials: true })
+    const base = axios.create({baseURL: portfolio.baseURL});
+    base.get( portfolio.listPath, { withCredentials: true })
     .then(res => {
-      let pList = eval('res.' + listResponse);
+      let pList = eval('res.' + portfolio.listResponse);
       setPortfolioList(pList);
     })
     .catch(e => {
@@ -24,9 +22,8 @@ export default function PortfolioList(){
   }
 
   function printPortfolioList(){
-    let pList = portfolioList;
-    if(pList){
-      return pList.map( item => {
+    if(portfolioList){
+      return portfolioList.map( item => {
         return(<PortfolioListItem key={item.id} item={item}/>)
       })
     }
@@ -37,9 +34,11 @@ export default function PortfolioList(){
   })
 
   return (
-    <div className="portfolio-list">
+    <div className="portfolio-list-container">
       {errorMsg? <div className='error'>{errorMsg}</div> : null}
-      {printPortfolioList()}
+      <div className="portfolio-list">
+        {printPortfolioList()}
+      </div>
     </div>
   );
 }

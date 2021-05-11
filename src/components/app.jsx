@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 import Home from './home.jsx';
 import About from './about.jsx';
+import PortfolioItemDetail from './portfolio-item-detail.jsx';
 
 export default function App() {
   return(
@@ -20,8 +21,11 @@ export default function App() {
                 <Home />
               </Route>
               <Route path="/about">
-              <h1>About</h1>
+                <h1>About</h1>
                 <About />
+              </Route>
+              <Route path='/item-:id' exact>
+                <PortfolioItemDetail/>
               </Route>
             </Switch>
           </div>
